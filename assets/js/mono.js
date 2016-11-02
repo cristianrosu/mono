@@ -1,16 +1,15 @@
 /* globals jQuery, document */
 (function ($, undefined) {
     "use strict";
-
+    var html = $('html');
     var viewport = $(window);
     var post = $('.post-content');
 
     /* ==========================================================================
-	   Article reading progress
-	   ========================================================================== */
+	   * Article reading progress
+	   * ========================================================================== */
 
   	function readingProgress() {
-      console.log('asdasda')
   		if(post.length >= 1) {
   			var postBottom = post.offset().top + post.height();
   			var windowBottom = viewport.scrollTop() + viewport.height();
@@ -32,4 +31,40 @@
   			readingProgress();
   		}
   	});
+
+
+    /* ==========================================================================
+     * Parallax cover
+     * ========================================================================== */
+
+    var cover = $('.post-head');
+    var main_header =  $('.main-header');
+    var coverPosition = 0;
+
+    function prlx() {
+      if(cover.length >= 1 || main_header.length >= 1) {
+        var windowPosition = viewport.scrollTop();
+        (windowPosition > 0) ? coverPosition = Math.floor(windowPosition * 0.25) : coverPosition = 0;
+        (viewport.scrollTop() < cover.height() - 20) ? html.addClass('cover-active') : html.removeClass('cover-active');
+      }
+      if(main_header.length >= 1) {
+        var windowPosition = viewport.scrollTop();
+        (windowPosition > 0) ? coverPosition = Math.floor(windowPosition * 0.25) : coverPosition = 0;
+        (viewport.scrollTop() < main_header.height() - 20) ? html.addClass('cover-active') : html.removeClass('cover-active');
+      }
+    }
+    prlx();
+
+    viewport.on({
+      'scroll': function() {
+        prlx();
+      },
+      'resize': function() {
+        prlx();
+      },
+      'orientationchange': function() {
+        prlx();
+      }
+    });
+
   })(jQuery);

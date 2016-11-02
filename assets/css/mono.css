@@ -1,5 +1,6 @@
-/* ==================== Article reading progress ==================== */
-
+/* =========================================================
+ * Animated reading progress
+ * ========================================================= */
 .progress-container {
 	position: fixed;
 	width: 100%;
@@ -18,4 +19,147 @@
 	width: 0;
 	height: 3px;
 	background: #e71d36; #f26a3d;
+}
+
+/* =========================================================
+ * Blog menu button
+ * ========================================================= */
+
+.menu-button {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: inline-block;
+    float: right;
+    padding: 0 1.5em;
+    border-style: solid;
+    border-width: 1px;
+    opacity: 1;
+    text-align: center;
+    font-size: 12px;
+    text-transform: uppercase;
+    line-height: 35px;
+    white-space: nowrap;
+    border-radius: 2em;
+    transition: all 0.3s ease;
+}
+.menu-button:before {
+    font-size: 12px;
+    font-weight: bold;
+    margin-right: 6px;
+    position: relative;
+    top: 1px;
+}
+.menu-button:focus {
+    outline: 0;
+}
+
+@media only screen and (min-width: 900px) {
+    .blog-logo {
+      position: fixed;
+      top:30px;
+      left: 30px;
+    }
+    .menu-button {
+      position: fixed;
+      top: 30px;
+      right: 30px;
+    }
+}
+.nav-closed .menu-button:hover {
+    color: #222;
+    border-color: #222;
+}
+.cover-active .menu-button:hover {
+    background: #fff;
+}
+
+.cover-active .nav-closed .menu-button {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.6);
+}
+ .cover-active .nav-closed .menu-button:hover {
+    color: #222;
+}
+
+/* When the navigation is closed */
+.nav-closed .menu-button {
+    color: #222;
+    color: #8a9199;
+    border-color: rgba(0, 0, 0, 0.6);
+    border-color: #c2c7cc
+}
+
+/* When the navigation is closed and there is no cover image */
+.nav-closed .no-cover .menu-button {
+    border-color: #BFC8CD;
+    color: #9EABB3;
+}
+.nav-closed .no-cover .menu-button:hover {
+    border-color: #555;
+    color: #555;
+}
+
+/* When the navigation is opened */
+.nav-opened .menu-button {
+    display: none;
+    visibility: hidden;
+    /*padding: 0 12px;
+    background: #111;
+    border-color: #111;
+    color: #fff;
+    -webkit-transform: translate3D(94px, 0, 0);
+        -ms-transform: translate3D(94px, 0, 0);
+            transform: translate3D(94px, 0, 0);
+    transition: all 0.3s ease;*/
+}
+
+.nav-opened .menu-button .word {
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+/* Special styles when overlaid on an image*/
+.main-nav.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    border: none;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
+}
+.no-cover .main-nav.overlay {
+    background: none;
+}
+
+/* =========================================================
+ * Article animated links
+ * ========================================================= */
+.post-content a {
+  color: #e71d36;
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+}
+.post-content a:after {
+    position: absolute;
+    top: 90%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #e71d36;
+    content: '';
+    opacity: 0;
+    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+    transition: opacity 0.3s, transform 0.3s;
+    -webkit-transform: translateY(5px);
+    transform: translateY(5px);
+}
+ .post-content a:hover:after,
+ .post-content a:focus:after,
+ .post-content a:hover:after {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
 }
