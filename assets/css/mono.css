@@ -1,0 +1,21 @@
+/* ==================== Article reading progress ==================== */
+
+.progress-container {
+	position: fixed;
+	width: 100%;
+	height: 3px;
+	left: 0;
+	top: 0;
+	z-index: 1000;
+	background: transparent;
+	transition: opacity ease-out 1s;
+}
+.progress-container.ready {
+	opacity: 0.2;
+}
+.progress-bar {
+	display: block;
+	width: 0;
+	height: 3px;
+	background: #e71d36; #f26a3d;
+}
