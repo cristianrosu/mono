@@ -1,8 +1,24 @@
+.hover-fade {
+	-webkit-transition: opacity 200ms cubic-bezier(0.42, 0, 0.585, 1);
+  -webkit-transition: opacity 200ms cubic-bezier(0.42, 0, 0.585, 1.23);
+  -moz-transition: opacity 200ms cubic-bezier(0.42, 0, 0.585, 1.23);
+  -ms-transition: opacity 200ms cubic-bezier(0.42, 0, 0.585, 1.23);
+  -o-transition: opacity 200ms cubic-bezier(0.42, 0, 0.585, 1.23);
+  transition: opacity 200ms cubic-bezier(0.42, 0, 0.585, 1.23);
+  -webkit-transform: translateZ(0);
+}
 /* =========================================================
  * Typography
  * ========================================================= */
 
 body {
+	text-rendering: optimizeLegibility;
+  font-feature-settings: "kern";
+  -webkit-font-feature-settings: "kern";
+  -moz-font-feature-settings: "kern";
+  -moz-font-feature-settings: "kern=1";
+  -webkit-font-smoothing: antialiased;
+
 	font-family: 'Source Sans Pro', sans-serif;
 	font-weight: 400;
 	font-size: 2.2rem;
@@ -92,14 +108,16 @@ a {
 }
 
 .cover-active .nav-closed .menu-button {
-    color: #fff;
-    border-color: rgba(255, 255, 255, 0.6);
+    background: #fff;
+		color: #111;
+    border-color: rgb(255, 255, 255);
 }
  .cover-active .nav-closed .menu-button:hover {
     color: #222;
 }
 
 /* When the navigation is closed */
+
 .nav-closed .menu-button {
     color: #222;
     color: #8a9199;
@@ -136,9 +154,9 @@ a {
     transition: all 0.3s ease;
 }
 
-/* Special styles when overlaid on an image*/
+/* Special styles when overlaid on an image */
 .main-nav.overlay {
-		z-index: 1023;
+		z-index: 1;
 		position: absolute;
     top: 0;
     left: 0;
@@ -154,26 +172,35 @@ a {
 /* =========================================================
  * Blog side menu
  * ========================================================= */
-body.nav-opened .nav-cover { right: 270px; }
+body.nav-closed .nav {
+ -webkit-transform: translate3D(400px, 0, 0);
+ -ms-transform: translate3D(400px, 0, 0);
+ transform: translate3D(400px, 0, 0);
+}
+
+body.nav-opened .nav-cover {
+	right: 0;
+	background: rgba(0,0,0,0.5)
+ }
 body.nav-opened .site-wrapper {
-		-webkit-transform: translate3D(-270px, 0, 0);
-    -ms-transform: translate3D(-270px, 0, 0);
-    transform: translate3D(-270px, 0, 0);
-    -webkit-transition: -webkit-transform 0.3s ease;
-    transition: transform 0.3s ease;
+		-webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+    -webkit-transition: none;
+    transition: none;
 }
 
  .nav {
-	 background: #f5f8fa;
-	 width: 269px;
-	 border-left: 1px solid #e9eff3;
+	 text-align: right;
+	 background: #111;
+	 width: 400px;
+	 z-index: 1023;
  }
 
  .nav .nav-title {
 	font-size: 2.2rem;
 	letter-spacing: 0.03rem;
 	font-weight: 900;
-	color: #111;
 	left: 24px;
 	top: 42;
  }
@@ -183,23 +210,49 @@ body.nav-opened .site-wrapper {
  }
 
 .nav li a {
-	border-left: 4px solid transparent;
-	font-size: 1.9rem;
+	font-size: 4vw;
 	font-weight: 900;
-	color: #111;
+	color: #fff;
+	text-transform: uppercase;
 }
+
 .nav li a:after { display: none; }
 .nav li a:hover {
-	color: #111;
+	color: #fff;
+	opacity: 0.5;
 }
-.nav a:link, .nav a:visited { color: #111; }
-.nav li.nav-current a, .nav a:hover, .nav a:active, .nav a:focus {
-	border-left-color: #111;
-	color: #111;
-}
-.nav-close:before, .nav-close:after { height: 3px; background: #222; }
-.nav-close:hover:before, .nav-close:hover:after { background: #000; }
+.nav a:link, .nav a:visited { color: #fff; }
 
+.nav-close { right: 7rem; }
+.nav-close:before, .nav-close:after {
+	height: 3px;
+	background: #fff;
+	-webkit-transition: opacity 200ms cubic-bezier(0.42, 0, 0.585, 1);
+  -webkit-transition: opacity 200ms cubic-bezier(0.42, 0, 0.585, 1.23);
+  -moz-transition: opacity 200ms cubic-bezier(0.42, 0, 0.585, 1.23);
+  -ms-transition: opacity 200ms cubic-bezier(0.42, 0, 0.585, 1.23);
+  -o-transition: opacity 200ms cubic-bezier(0.42, 0, 0.585, 1.23);
+  transition: opacity 200ms cubic-bezier(0.42, 0, 0.585, 1.23);
+}
+.nav-close:hover:before, .nav-close:hover:after { opacity: 0.5 }
+
+
+/* =========================================================
+ * Blog index page header
+ * ========================================================= */
+.home-template .main-header:before {
+	content: " ";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0,0,0,0.35);
+}
+.main-header .vertical { position: relative; }
+.scroll-down { color: rgb(255,255,255) }
+
+.home-template .page-title { font-size: 7rem }
 /* =========================================================
  * Article animated links
  * ========================================================= */
