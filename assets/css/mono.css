@@ -61,6 +61,11 @@ pre {
 	background: #fafafa;
 	border: 1px solid #f2f2f2;
 }
+
+code {
+	background: #fafafa;
+	border-color: #f2f2f2;
+}
 /* =========================================================
  * Page header
  * ========================================================= */
@@ -288,7 +293,7 @@ body.nav-opened .site-wrapper {
 .main-header .vertical { position: relative; }
 .scroll-down { color: rgb(255,255,255) }
 
-.home-template .page-title { font-size: 7rem }
+.home-template .page-title { font-size: 6rem }
 /* =========================================================
  * Article animated links
  * ========================================================= */
