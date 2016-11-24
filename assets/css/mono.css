@@ -11,6 +11,16 @@
  * Typography
  * ========================================================= */
 
+ ::-moz-selection { /* Code for Firefox */
+     color: #fff;
+     background: #222;
+ }
+
+ ::selection {
+     color: #fff;
+     background: #222;
+ }
+
 body {
 	text-rendering: optimizeLegibility;
   font-feature-settings: "kern";
@@ -26,7 +36,10 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Source Sans Pro', sans-serif;
-	font-weight: 700;
+	/*font-family: 'Bebas Neue', sans-serif;*/
+	font-weight: bold;
+	letter-spacing: 0.02rem;
+
 	color: #111;
 }
 
@@ -36,10 +49,29 @@ textarea, select, input, button {
 .main-nav a, .subscribe-button, .page-title, .post-meta {
 	font-family: 'Source Sans Pro', sans-serif;
 }
+
 a {
 	color: #111;
 	transition: color 0.2s ease;
 }
+
+pre {
+	background: #fafafa;
+	border: 1px solid #f2f2f2;
+}
+/* =========================================================
+ * Page header
+ * ========================================================= */
+ .page-title {
+	 position: relative;
+	 z-index: 1;
+ }
+
+.page-description {
+	color: rgba(255,255,255,0.99);
+	text-shadow: 0px 2px 2px rgba(20, 20, 20, 0.4);
+}
+
 /* =========================================================
  * Animated reading progress
  * ========================================================= */
@@ -240,15 +272,16 @@ body.nav-opened .site-wrapper {
 /* =========================================================
  * Blog index page header
  * ========================================================= */
-.home-template .main-header:before {
+.home-template .main-header:before, .archive-template .main-header:before {
 	content: " ";
 	position: absolute;
 	top: 0;
 	bottom: 0;
 	left: 0;
 	right: 0;
-	background: rgba(0,0,0,0.35);
+	background: rgba(0,0,0,0.2);
 }
+
 .main-header .vertical { position: relative; }
 .scroll-down { color: rgb(255,255,255) }
 

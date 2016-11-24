@@ -1,5 +1,8 @@
 /* globals jQuery, document */
 (function ($, undefined) {
+    /* Initialize Sintax Highlighter */
+    hljs.initHighlightingOnLoad();
+
     "use strict";
     var html = $('html');
     var viewport = $(window);
