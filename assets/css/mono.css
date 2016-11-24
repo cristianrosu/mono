@@ -56,6 +56,8 @@ a {
 }
 
 pre {
+	font-size: 0.82em;
+	line-height: 1.5em;
 	background: #fafafa;
 	border: 1px solid #f2f2f2;
 }
@@ -348,3 +350,20 @@ body.nav-opened .site-wrapper {
 	 top: -62px;
 	 padding: 5px;
  }
+
+
+/* Fit & Full Image styles */
+
+img[src$="#fit"] {
+    max-width: 100%;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto
+}
+/* under 900 all are full width I guess */
+@media only screen and (min-width: 900px) {
+	img[src$="#full"] {
+	    max-width: 180%;
+			width: 870%;
+	}
+}
